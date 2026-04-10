@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Eunice "Kay" Kim | Strategic Health Benefits Executive</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+:root{
+  --bg:#0a192f;
+  --bg2:#0f2340;
+  --bg3:#162d4a;
+  --gold:#d4af37;
+  --gold-light:#e8cc6e;
+  --gold-dim:rgba(212,175,55,0.15);
+  --gold-border:rgba(212,175,55,0.3);
+  --text:#e8e6df;
+  --text-muted:#8a9bb5;
+  --text-dim:#5a6e8a;
+  --border:rgba(212,175,55,0.15);
+  --border-soft:rgba(255,255,255,0.07);
+  --serif:'Playfair Display',Georgia,serif;
+  --sans:'Inter',system-ui,sans-serif;
+}
+html{scroll-behavior:smooth;}
+body{font-family:var(--sans);background:var(--bg);color:var(--text);line-height:1.7;letter-spacing:0.02em;font-size:16px;-webkit-font-smoothing:antialiased;}
+.insight-cards{display:flex;flex-direction:column;gap:10px;padding:14px 20px 16px;}
+.ic{border:1px solid var(--gold-border);border-radius:6px;overflow:hidden;cursor:pointer;transition:border-color 0.25s,background 0.25s;}
+.ic:hover{border-color:rgba(212,175,55,0.55);background:rgba(212,175,55,0.04);}
+.ic-q{display:flex;align-items:center;justify-content:space-between;padding:14px 18px;font-size:13px;color:var(--gold);font-weight:500;letter-spacing:0.05em;user-select:none;}
+.ic-arrow{font-size:10px;transition:transform 0.3s;opacity:0.7;}
+.ic.open .ic-arrow{transform:rotate(180deg);}
+.ic-a{max-height:0;overflow:hidden;transition:max-height 0.4s ease;}
+.ic.open .ic-a{max-height:180px;}
+.ic-a-inner{padding:0 18px 16px;font-size:13px;color:var(--text-muted);line-height:1.8;border-top:1px solid var(--border-soft);padding-top:14px;}
+a{color:var(--gold);text-decoration:none;}
+a:hover{color:var(--gold-light);}
+
+/* FADE IN */
+.fade-in{opacity:0;transform:translateY(24px);transition:opacity 0.7s ease,transform 0.7s ease;}
+.fade-in.visible{opacity:1;transform:none;}
+
+/* NAV */
+nav{position:sticky;top:0;background:rgba(10,25,47,0.92);backdrop-filter:blur(16px);border-bottom:1px solid var(--border);z-index:100;padding:0 2.5rem;display:flex;align-items:center;justify-content:space-between;height:60px;}
+.logo{font-family:var(--sans);font-weight:300;font-size:15px;color:var(--text-muted);letter-spacing:0.06em;white-space:nowrap;}
+.logo .kay{font-weight:700;font-size:16px;color:var(--gold);letter-spacing:0.02em;}
+nav ul{list-style:none;display:flex;gap:32px;}
+nav ul li button{background:none;border:none;cursor:pointer;font-family:var(--sans);font-size:12px;font-weight:400;color:var(--text-muted);letter-spacing:0.1em;text-transform:uppercase;transition:color 0.2s;padding:0;}
+nav ul li button:hover{color:var(--gold);}
+
+/* SECTIONS */
+section{max-width:900px;margin:0 auto;padding:100px 2.5rem;}
+section+section{border-top:1px solid var(--border-soft);}
+.section-eyebrow{font-family:var(--sans);font-size:11px;font-weight:500;letter-spacing:0.18em;text-transform:uppercase;color:var(--gold);margin-bottom:16px;display:flex;align-items:center;gap:12px;}
+.section-eyebrow::after{content:'';flex:1;max-width:48px;height:1px;background:var(--gold-border);}
+.section-title{font-family:var(--serif);font-size:clamp(26px,4vw,42px);font-weight:400;color:var(--text);line-height:1.2;margin-bottom:20px;letter-spacing:-0.01em;}
+.section-sub{font-size:16px;color:var(--text-muted);line-height:1.85;max-width:600px;margin-bottom:48px;}
+
+/* HERO */
+#hero{padding-top:120px;padding-bottom:120px;}
+.hero-layout{display:grid;grid-template-columns:1fr 280px;gap:64px;align-items:center;}
+.hero-eyebrow{font-size:11px;font-weight:500;letter-spacing:0.18em;text-transform:uppercase;color:var(--gold);margin-bottom:16px;}
+.hero-name{font-family:var(--serif);font-size:clamp(14px,2vw,18px);font-weight:400;color:var(--text-muted);letter-spacing:0.08em;margin-bottom:8px;}
+.hero-name .kay{font-family:var(--serif);font-weight:700;font-size:clamp(17px,2.4vw,22px);color:var(--gold);font-style:italic;}
+#hero h1{font-family:var(--serif);font-size:clamp(34px,5.5vw,58px);font-weight:400;line-height:1.1;letter-spacing:-0.02em;color:var(--text);margin-bottom:8px;}
+#hero h1 em{font-style:italic;color:var(--gold);}
+.hero-rule{width:48px;height:1px;background:var(--gold-border);margin:24px 0;}
+#hero p{font-size:17px;color:var(--text-muted);max-width:460px;line-height:1.8;margin-bottom:40px;}
+.hero-cta{display:flex;gap:14px;flex-wrap:wrap;}
+.btn{display:inline-flex;align-items:center;gap:7px;padding:12px 24px;border-radius:4px;font-size:13px;font-weight:500;cursor:pointer;border:none;transition:all 0.2s;text-decoration:none;font-family:var(--sans);letter-spacing:0.06em;text-transform:uppercase;}
+.btn-gold{background:var(--gold);color:#0a192f;font-weight:600;}
+.btn-gold:hover{background:var(--gold-light);color:#0a192f;}
+.btn-ghost{background:transparent;color:var(--gold);border:1px solid var(--gold-border);}
+.btn-ghost:hover{background:var(--gold-dim);color:var(--gold-light);}
+.hero-photo-wrap{display:flex;justify-content:center;}
+.hero-photo{width:260px;height:260px;border-radius:50%;object-fit:cover;object-position:top center;border:3px solid var(--gold-border);box-shadow:0 0 0 8px rgba(212,175,55,0.06),0 24px 60px rgba(0,0,0,0.5);display:block;}
+
+/* THOUGHT LEADERSHIP QUOTE */
+#quote{padding:80px 2.5rem;background:var(--bg2);border-top:1px solid var(--border);border-bottom:1px solid var(--border);}
+.quote-wrap{max-width:760px;margin:0 auto;text-align:center;}
+.quote-mark{font-family:var(--serif);font-size:80px;line-height:0.5;color:var(--gold);opacity:0.4;display:block;margin-bottom:24px;}
+blockquote{font-family:var(--serif);font-size:clamp(20px,3vw,30px);font-weight:400;font-style:italic;color:var(--text);line-height:1.5;letter-spacing:-0.01em;margin-bottom:28px;}
+blockquote em{color:var(--gold);font-style:normal;}
+.quote-attr{font-size:12px;color:var(--text-muted);letter-spacing:0.14em;text-transform:uppercase;}
+
+/* ABOUT */
+.about-body{color:var(--text-muted);font-size:16px;line-height:1.9;margin-bottom:20px;}
+.ai-callout{border:1px solid var(--gold-border);border-radius:6px;padding:24px 28px;margin:36px 0;background:var(--gold-dim);position:relative;}
+.ai-callout::before{content:'AI INNOVATION';position:absolute;top:-10px;left:20px;background:var(--bg);padding:0 10px;font-size:10px;font-weight:600;letter-spacing:0.16em;color:var(--gold);}
+.ai-callout p{font-size:15px;color:var(--text);line-height:1.8;margin:0;}
+.ai-callout strong{color:var(--gold);}
+.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:1px;border:1px solid var(--border-soft);border-radius:8px;overflow:hidden;margin-top:40px;}
+.about-card{background:var(--bg2);padding:20px 24px;}
+.about-card h4{font-size:10px;font-weight:600;letter-spacing:0.14em;text-transform:uppercase;color:var(--gold);margin-bottom:8px;}
+.about-card p{font-size:14px;color:var(--text-muted);line-height:1.5;}
+
+/* EXPERIENCE */
+.timeline{margin-top:8px;}
+.timeline-item{display:grid;grid-template-columns:160px 1fr;gap:32px;padding:40px 0;border-bottom:1px solid var(--border-soft);}
+.timeline-item:last-child{border-bottom:none;}
+.tl-left{padding-top:4px;}
+.tl-era{font-size:11px;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:var(--gold);margin-bottom:10px;}
+.tl-org{font-size:12px;color:var(--text-dim);line-height:1.55;}
+.tl-body h3{font-family:var(--serif);font-size:20px;font-weight:400;color:var(--text);margin-bottom:4px;}
+.tl-company{font-size:13px;color:var(--gold);font-weight:500;letter-spacing:0.04em;margin-bottom:20px;}
+.tl-list{list-style:none;display:flex;flex-direction:column;gap:12px;}
+.tl-list li{display:flex;gap:14px;font-size:14px;color:var(--text-muted);line-height:1.75;}
+.tl-list li::before{content:'';width:1px;flex-shrink:0;background:var(--gold);margin-top:6px;height:14px;}
+
+/* SKILLS */
+.skills-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:1px;border:1px solid var(--border-soft);border-radius:8px;overflow:hidden;margin-top:40px;}
+.skill-item{background:var(--bg2);padding:20px 22px;transition:background 0.2s;}
+.skill-item:hover{background:var(--bg3);}
+.skill-item h4{font-size:14px;font-weight:500;color:var(--text);margin-bottom:4px;}
+.skill-item span{font-size:11px;color:var(--text-dim);}
+
+/* PROJECTS */
+.project-feature{border:1px solid var(--border-soft);border-radius:10px;overflow:hidden;margin-bottom:20px;background:var(--bg2);}
+.pfh{display:grid;grid-template-columns:220px 1fr;}
+.pfh-thumb{background:linear-gradient(135deg,#0f2340 0%,#162d4a 100%);display:flex;align-items:center;justify-content:center;border-right:1px solid var(--border-soft);padding:24px;}
+.yt-circle{width:152px;height:152px;border-radius:50%;object-fit:cover;border:2px solid var(--gold-border);box-shadow:0 0 0 6px rgba(212,175,55,0.06);display:block;}
+.pfh-body{padding:32px;}
+.pfh-eyebrow{font-size:10px;font-weight:600;letter-spacing:0.16em;text-transform:uppercase;color:var(--gold);margin-bottom:10px;}
+.pfh-body h3{font-family:var(--serif);font-size:22px;font-weight:400;color:var(--text);margin-bottom:12px;}
+.pfh-body p{font-size:14px;color:var(--text-muted);line-height:1.8;margin-bottom:20px;}
+.pfh-tags{display:flex;gap:8px;flex-wrap:wrap;align-items:center;}
+.tag{font-size:11px;color:var(--gold);border:1px solid var(--gold-border);padding:3px 12px;border-radius:20px;font-weight:400;letter-spacing:0.04em;}
+.yt-btn{display:inline-flex;align-items:center;gap:6px;font-size:12px;font-weight:500;color:var(--gold);border:1px solid var(--gold-border);border-radius:4px;padding:6px 16px;letter-spacing:0.06em;text-transform:uppercase;transition:background 0.2s;}
+.yt-btn:hover{background:var(--gold-dim);}
+.project-mini-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;}
+.project-mini{background:var(--bg2);border:1px solid var(--border-soft);border-radius:10px;padding:24px;}
+.pm-icon{font-size:28px;margin-bottom:12px;}
+.pm-eyebrow{font-size:10px;font-weight:600;letter-spacing:0.14em;text-transform:uppercase;color:var(--gold);margin-bottom:8px;}
+.project-mini h4{font-family:var(--serif);font-size:17px;font-weight:400;color:var(--text);margin-bottom:8px;}
+.project-mini p{font-size:13px;color:var(--text-muted);line-height:1.7;}
+
+/* CHATBOT */
+.chat-shell{background:var(--bg2);border:1px solid var(--border-soft);border-radius:10px;overflow:hidden;margin-top:8px;}
+.chat-msgs{padding:24px;min-height:220px;max-height:360px;overflow-y:auto;display:flex;flex-direction:column;gap:14px;}
+.msg{display:flex;gap:10px;align-items:flex-start;max-width:88%;}
+.msg.user{align-self:flex-end;flex-direction:row-reverse;}
+.msg-av{width:28px;height:28px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:600;flex-shrink:0;margin-top:2px;}
+.msg.bot .msg-av{background:var(--gold-dim);color:var(--gold);border:1px solid var(--gold-border);}
+.msg.user .msg-av{background:var(--bg3);color:var(--text-muted);}
+.msg-bub{font-size:14px;line-height:1.65;padding:10px 14px;border-radius:8px;}
+.msg.bot .msg-bub{background:var(--bg3);color:var(--text);border-radius:4px 8px 8px 8px;}
+.msg.user .msg-bub{background:var(--gold-dim);color:var(--text);border:1px solid var(--gold-border);border-radius:8px 4px 8px 8px;}
+.chat-sugg{display:flex;gap:8px;flex-wrap:wrap;padding:0 20px 14px;}
+.sq{font-size:12px;background:transparent;color:var(--gold);border:1px solid var(--gold-border);border-radius:20px;padding:5px 14px;cursor:pointer;font-family:var(--sans);letter-spacing:0.04em;transition:background 0.15s;}
+.sq:hover{background:var(--gold-dim);}
+.chat-input{display:flex;gap:10px;padding:16px 20px;border-top:1px solid var(--border-soft);}
+.chat-input input{flex:1;padding:11px 16px;border:1px solid var(--border-soft);border-radius:4px;font-size:14px;font-family:var(--sans);background:var(--bg3);color:var(--text);outline:none;}
+.chat-input input::placeholder{color:var(--text-dim);}
+.chat-input input:focus{border-color:var(--gold-border);}
+.chat-input button{background:var(--gold);color:#0a192f;border:none;border-radius:4px;padding:11px 20px;font-size:13px;font-weight:600;cursor:pointer;font-family:var(--sans);letter-spacing:0.06em;text-transform:uppercase;}
+.chat-input button:hover{background:var(--gold-light);}
+
+/* FOOTER */
+footer{border-top:1px solid var(--border-soft);padding:40px 2.5rem;max-width:900px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;}
+footer p{font-size:12px;color:var(--text-dim);letter-spacing:0.06em;}
+.footer-links{display:flex;gap:20px;}
+.footer-links a{font-size:12px;color:var(--text-dim);letter-spacing:0.06em;transition:color 0.15s;}
+.footer-links a:hover{color:var(--gold);}
+
+@media(max-width:640px){
+  .hero-layout,.pfh,.timeline-item{grid-template-columns:1fr;}
+  .hero-photo-wrap{order:-1;}
+  .tl-left{padding-bottom:0;}
+  .about-grid{grid-template-columns:1fr;}
+  .project-mini-grid{grid-template-columns:1fr;}
+  .pfh-thumb{height:120px;border-right:none;border-bottom:1px solid var(--border-soft);}
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <span class="logo">Eunice <span class="kay">"Kay"</span> Kim</span>
+  <ul>
+    <li><button onclick="goTo('about')">About</button></li>
+    <li><button onclick="goTo('experience')">Experience</button></li>
+    <li><button onclick="goTo('creative')">Projects</button></li>
+    <li><button onclick="goTo('ask')">Ask Kay</button></li>
+  </ul>
+</nav>
+
+<section id="hero">
+  <div class="hero-layout fade-in">
+    <div>
+      <div class="hero-eyebrow">Strategic Health Benefits Executive</div>
+      <div class="hero-name">Eunice <span class="kay">"Kay"</span> Kim</div>
+      <h1>Where <em>strategy</em><br>meets human impact.</h1>
+      <div class="hero-rule"></div>
+      <p>Architecting health benefits solutions at the intersection of global complexity, institutional trust, and intelligent innovation — for the organizations and people that depend on getting it right.</p>
+      <div class="hero-cta">
+        <button class="btn btn-gold" onclick="document.getElementById('ask').scrollIntoView({behavior:'smooth'})">Ask me anything</button>
+        <a href="https://www.youtube.com/@NovaVistaMetaTravel" target="_blank" class="btn btn-ghost">YouTube ↗</a>
+      </div>
+    </div>
+    <div class="hero-photo-wrap">
+      <img src="./p1.jpg" alt="Kay - Strategic Health Benefits Executive" class="hero-photo" />
+    </div>
+  </div>
+</section>
+
+<section id="quote" style="padding:80px 2.5rem;">
+  <div class="quote-wrap fade-in" style="position:relative;">
+    <div style="position:absolute;top:-30px;left:50%;transform:translateX(-50%);font-family:var(--serif);font-size:220px;line-height:1;color:var(--gold);opacity:0.04;pointer-events:none;user-select:none;z-index:0;">"</div>
+    <span class="quote-mark" style="position:relative;z-index:1;">"</span>
+    <blockquote style="position:relative;z-index:1;">Healthcare is about connecting <em>people</em>, not just systems — and the leaders who understand that distinction are the ones who transform it.</blockquote>
+    <div class="quote-attr" style="position:relative;z-index:1;">— Eunice "Kay" Kim · Philosophy of Practice</div>
+  </div>
+</section>
+
+<section id="about">
+  <div class="fade-in">
+    <div class="section-eyebrow">About</div>
+    <h2 class="section-title">Connecting people to better health outcomes</h2>
+    <div class="section-sub">Nearly 15 years at the intersection of healthcare complexity, executive trust, and intelligent innovation.</div>
+    <p class="about-body">My career has always been about making the complex feel navigable. Whether I'm guiding a multinational employer group through the architecture of a global benefits program, orchestrating alignment across international TPA partners, or reimagining how AI can eliminate friction in client workflows — I bring the same orientation to every challenge: strategic clarity, institutional fluency, and a genuine commitment to the people on the other side of the equation.</p>
+    <p class="about-body">What distinguishes my practice isn't simply the depth of healthcare expertise accumulated over nearly 15 years. It's the conviction that the industry's most meaningful advances will come from professionals who are willing to evolve alongside it — and who bring the tools of tomorrow into the work of today.</p>
+    <div class="ai-callout">
+      <p><strong>Innovation in practice:</strong> I designed and deployed <strong>custom AI agents within the Microsoft 365 environment</strong> to automate and elevate client support workflows — transforming manual, high-friction coordination processes into intelligent, scalable systems. This initiative is not peripheral to my professional identity. It reflects a core belief: that the most effective benefits strategists of the next decade will be those who build with AI, not alongside it.</p>
+    </div>
+    <div class="about-grid">
+      <div class="about-card"><h4>Location</h4><p>Southern California</p></div>
+      <div class="about-card"><h4>Expertise</h4><p>Multinational &amp; National Account Benefits Strategy</p></div>
+      <div class="about-card"><h4>Passions</h4><p>AI innovation, narrative storytelling, golf</p></div>
+      <div class="about-card"><h4>Open to</h4><p>Senior consulting &amp; strategic advisory roles</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="experience">
+  <div class="fade-in">
+    <div class="section-eyebrow">Experience</div>
+    <h2 class="section-title">A career defined by strategic consequence</h2>
+    <div class="section-sub">Across carriers, brokers, and global markets — a record of shaping the decisions that matter.</div>
+    <div class="timeline">
+
+      <div class="timeline-item">
+        <div class="tl-left">
+          <div class="tl-era">Present</div>
+          <div class="tl-org">UnitedHealthcare Global<br>National Accounts<br>Southern California</div>
+        </div>
+        <div class="tl-body">
+          <h3>Strategic Client Executive</h3>
+          <div class="tl-company">UnitedHealthcare Global</div>
+          <ul class="tl-list">
+            <li>Architect and steward a portfolio of multinational accounts, delivering bespoke global health benefits solutions for large-market employers and TPA partners navigating cross-border complexity at scale.</li>
+            <li>Chair high-stakes cross-border claims and settlement forums with international TPA partners — driving resolution through ambiguity and ensuring continuity of coverage across jurisdictions and cultures.</li>
+            <li>Pioneered the deployment of custom AI agents within the Microsoft 365 environment, transforming manual coordination workflows into intelligent, automated systems that elevate client experience and operational throughput.</li>
+            <li>Lead full-cycle plan renewal strategy, product consulting, and new business development for the Southern California large-market and TPA segment — sustaining strong retention while expanding regional strategic influence.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="timeline-item">
+        <div class="tl-left">
+          <div class="tl-era">Previous</div>
+          <div class="tl-org">McGriff<br>HUB International</div>
+        </div>
+        <div class="tl-body">
+          <h3>National Account Management</h3>
+          <div class="tl-company">McGriff &amp; HUB International</div>
+          <ul class="tl-list">
+            <li>Led finalist presentations directly before C-suite executives and senior HR leadership at large-market employers — positioning complex, multi-carrier benefit strategies against the most competitive consulting environments in the market.</li>
+            <li>Designed and operationalized proprietary financial benchmarking capabilities that empowered clients to make data-informed renewal decisions with clarity and confidence at the executive level.</li>
+            <li>Built a reputation as a trusted strategic advisor to HR and finance leadership — translating analytical complexity into the language of organizational consequence.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="timeline-item">
+        <div class="tl-left">
+          <div class="tl-era">Foundation</div>
+          <div class="tl-org">Hub International<br>Los Angeles</div>
+        </div>
+        <div class="tl-body">
+          <h3>Group Health Account Management</h3>
+          <div class="tl-company">Hub International Los Angeles</div>
+          <ul class="tl-list">
+            <li>Managed a robust portfolio of group health policies across California, establishing the foundational client management discipline and carrier relationship fluency that define my practice today.</li>
+            <li>Built deep roots in the Southern California employer group ecosystem — cultivating lasting relationships with brokers, HR directors, and regional carriers in one of the nation's most competitive markets.</li>
+          </ul>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<section id="skills">
+  <div class="fade-in">
+    <div class="section-eyebrow">Expertise</div>
+    <h2 class="section-title">Domains of mastery</h2>
+    <div class="skills-grid">
+      <div class="skill-item"><h4>Multinational Benefits</h4><span>Global account architecture</span></div>
+      <div class="skill-item"><h4>Plan Renewal Strategy</h4><span>Large-market retention &amp; growth</span></div>
+      <div class="skill-item"><h4>National Account Leadership</h4><span>TPA &amp; broker ecosystems</span></div>
+      <div class="skill-item"><h4>AI Agent Development</h4><span>Microsoft 365 automation</span></div>
+      <div class="skill-item"><h4>Financial Benchmarking</h4><span>Data-driven plan analytics</span></div>
+      <div class="skill-item"><h4>C-Suite Consulting</h4><span>Executive-level advisory</span></div>
+      <div class="skill-item"><h4>Cross-Border Operations</h4><span>International TPA coordination</span></div>
+      <div class="skill-item"><h4>New Business Development</h4><span>Strategic pipeline leadership</span></div>
+    </div>
+  </div>
+</section>
+
+<section id="creative">
+  <div class="fade-in">
+    <div class="section-eyebrow">Digital Innovation &amp; Insight</div>
+    <h2 class="section-title">Strategy made visible</h2>
+    <div class="section-sub">These projects are not a departure from my professional identity — they are its extension. AI-generated content is the medium through which I visualize strategic insight, reframe complex systems in human language, and explore the future of how ideas travel.</div>
+
+    <div class="project-feature">
+      <div class="pfh">
+        <div class="pfh-thumb">
+          <img src="./p2.jpg" alt="Nova Vista MetaTravel" class="yt-circle" />
+        </div>
+        <div class="pfh-body">
+          <div class="pfh-eyebrow">YouTube Channel · AI Content Studio</div>
+          <h3>Nova Vista MetaTravel</h3>
+          <p>A storytelling-driven channel featuring Oscar — an anthropomorphic white otter — navigating workplace psychology, healing philosophy, and the quiet complexity of modern professional life. Produced entirely with AI tools including Eleven Labs, Suno, CapCut, and InVideo. Nova Vista is proof that the skills that define a great benefits strategist — empathy, narrative clarity, systems thinking — translate with precision into digital media.</p>
+          <div class="pfh-tags">
+            <span class="tag">AI-generated</span>
+            <span class="tag">Short-form</span>
+            <span class="tag">Workplace psychology</span>
+            <span class="tag">Buddhist philosophy</span>
+            <a href="https://www.youtube.com/@NovaVistaMetaTravel" target="_blank" class="yt-btn">Watch on YouTube ↗</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="project-mini-grid">
+      <div class="project-mini">
+        <div class="pm-icon">🍱</div>
+        <div class="pm-eyebrow">AI Video Series</div>
+        <h4>Office Lunch Hero</h4>
+        <p>An AI-generated series that reclaims the ordinary — exploring the quiet acts of resilience, connection, and humanity that define professional life, rendered through the lens of a lunch break.</p>
+      </div>
+      <div class="project-mini">
+        <div class="pm-icon">⚙️</div>
+        <div class="pm-eyebrow">Enterprise AI Design</div>
+        <h4>AI Agent Architecture</h4>
+        <p>The same design intelligence applied to content creation informs my enterprise AI work — building custom agents that transform high-friction workflows into elegant, scalable systems within Microsoft 365.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="ask">
+  <div class="fade-in">
+    <div class="section-eyebrow">Ask Kay</div>
+    <h2 class="section-title">Have a question? Just ask.</h2>
+    <div class="section-sub">Curious about my background, philosophy, or what I'm building? This AI assistant knows Kay's story.</div>
+    <div class="chat-shell">
+      <div class="chat-msgs" id="chatMsgs">
+        <div class="msg bot">
+          <div class="msg-av">K</div>
+          <div class="msg-bub">Hello — I'm Kay's AI assistant. Ask me anything about her career, multinational benefits expertise, AI innovation work, or creative projects.</div>
+        </div>
+      </div>
+      
+      <div class="insight-cards">
+        <div class="ic" onclick="toggleIC(this)">
+          <div class="ic-q">What defines excellence in TPA partnerships? <span class="ic-arrow">▼</span></div>
+          <div class="ic-a"><div class="ic-a-inner">Excellence in TPA partnerships is built on trust — not contracts. The most durable partnerships are those where accountability is shared, not assigned. When every stakeholder understands not only their role but the human consequence behind it, the relationship transcends a service arrangement and becomes a genuine alliance. I've found that the partnerships delivering the most value are the ones where both sides are equally invested in the outcome for the member.</div></div>
+        </div>
+        <div class="ic" onclick="toggleIC(this)">
+          <div class="ic-q">The role of AI in strategic healthcare innovation? <span class="ic-arrow">▼</span></div>
+          <div class="ic-a"><div class="ic-a-inner">AI doesn't replace strategic judgment — it restores it. The most meaningful application of AI in healthcare is not automation for efficiency's sake. It is the deliberate removal of friction that prevents talented professionals from doing the work that only humans can do: listening, interpreting, advocating. When I design an AI agent, I'm not eliminating a role — I'm returning a person to the reasoning and empathy that no system can replicate.</div></div>
+        </div>
+        <div class="ic" onclick="toggleIC(this)">
+          <div class="ic-q">The art of orchestrating complex global networks? <span class="ic-arrow">▼</span></div>
+          <div class="ic-a"><div class="ic-a-inner">Complexity yields to a common language. The key to coordinating across jurisdictions, cultures, and competing institutional priorities is not to flatten what is complex — it is to create the shared framework within which complexity becomes navigable. In global benefits work, the professional who can translate fluently between systems — technically, culturally, and strategically — doesn't just manage complexity. They become the architecture through which it resolves.</div></div>
+        </div>
+      </div>
+
+      <div class="chat-input">
+        <input type="text" id="chatIn" placeholder="Ask something about Kay..." onkeydown="if(event.key==='Enter')sendMsg()"/>
+        <button onclick="sendMsg()">Send</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <p>© 2026 · Eunice "Kay" Kim · Southern California</p>
+  <div class="footer-links">
+    <a href="https://www.youtube.com/@NovaVistaMetaTravel" target="_blank">YouTube</a>
+    <a href="#ask">Contact</a>
+  </div>
+</footer>
+
+<script>
+function goTo(id){
+  document.getElementById(id).scrollIntoView({behavior:'smooth',block:'start'});
+}
+
+const observer=new IntersectionObserver(entries=>{
+  entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');}});
+},{threshold:0.1});
+document.querySelectorAll('.fade-in').forEach(el=>observer.observe(el));
+
+function toggleIC(el){
+  const isOpen=el.classList.contains('open');
+  document.querySelectorAll('.ic').forEach(ic=>ic.classList.remove('open'));
+  if(!isOpen)el.classList.add('open');
+}
+
+/* Chat UI (API 연결은 제외, UI 피드백만 제공) */
+function sendMsg(){
+  const inpEl=document.getElementById('chatIn');
+  const msgsEl=document.getElementById('chatMsgs');
+  const t=inpEl.value.trim();if(!t)return;
+  inpEl.value='';
+  
+  const d=document.createElement('div');d.className=`msg user`;
+  d.innerHTML=`<div class="msg-av">You</div><div class="msg-bub">${t}</div>`;
+  msgsEl.appendChild(d);msgsEl.scrollTop=msgsEl.scrollHeight;
+}
+</script>
+</body>
+</html>
